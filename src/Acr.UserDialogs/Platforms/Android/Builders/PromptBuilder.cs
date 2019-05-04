@@ -154,13 +154,14 @@ namespace Acr.UserDialogs.Builders
         }
 
 
-        public static void SetInputType(TextView txt, InputType inputType)
+        public static void SetInputType(EditText txt, InputType inputType)
         {
             txt.SetSingleLine(true);
             switch (inputType)
             {
                 case InputType.DecimalNumber:
                     txt.InputType = InputTypes.ClassNumber | InputTypes.NumberFlagDecimal | InputTypes.NumberFlagSigned;
+                    txt.SetRawInputType(InputTypes.ClassNumber | InputTypes.NumberFlagDecimal | InputTypes.NumberFlagSigned);
                     txt.SetSingleLine(true);
                     txt.KeyListener = DigitsKeyListener.GetInstance("1234567890" + CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator);
                     break;
